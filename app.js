@@ -5,9 +5,9 @@ var logger = require('morgan');
 const cors = require('cors');
 
 // Swagger
-const swaggerUi = require('swagger-jsdoc');
-const apiDocumentation = require('./apiDocs.json');
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(apiDocumentation));
+// const swaggerUi = require('swagger-jsdoc');
+// const apiDocumentation = require('./apiDocs.json');
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(apiDocumentation));
 //End Swagger
 
 const authRouter = require('./app/api/auth/router');

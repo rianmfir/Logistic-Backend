@@ -53,9 +53,12 @@ module.exports = {
                 return res.status(403).json({ message: 'Username registered' });
             }
 
+            // const newNumber = msisdn[0] === 0 ? 
+
             const user = await User.create(
                 {
                     id: uuidv4(),
+                    // msisdn: `62${msisdn}`,
                     msisdn,
                     name,
                     username,
