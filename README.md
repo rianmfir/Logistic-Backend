@@ -16,4 +16,6 @@
 
 8. Ketikan "npx sequelize-cli db:seed:all" untuk insert data yang telah disediakan
 
-9. Lalu unutuk dokumentasi menggunakan Swagger dengan alamat "http://localhost:3000/api-docs"
+9. Untuk menjalankan server bisa ketikan "npm run dev"
+
+10. Lalu unutuk dokumentasi menggunakan Swagger dengan alamat "http://localhost:3000/api-docs"
