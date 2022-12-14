@@ -91,10 +91,22 @@ paths:
         required: true
         type: string
         description: ''
+      - name: origin_name
+        in: query
+        # required: false
+        type: string
+        description: ''
+      - name: destination_name
+        in: query
+        # required: false
+        type: string
+        description: ''
+      schema:
+          $ref: '#/definitions/GettAllLogisticRequest'
       responses:
         '200':
           description: ''
-          headers: {}
+          headers: {} 
     post:
       summary: Create Logistic
       tags:
@@ -118,7 +130,7 @@ paths:
       responses:
         '200':
           description: ''
-          headers: {}
+          headers: {}     
   /logistic/{id}:
     put:
       summary: Update Logistic
@@ -235,6 +247,17 @@ definitions:
           $ref: '#/definitions/Payload'
     required:
     - payload
+  GettAllLogisticRequest:
+    title: GettAllLogisticRequest
+    example:
+      origin_name: BANDUNG
+      destination_name: JAKARTA
+    type: object
+    properties:
+      origin_name:
+        type: string
+      destination_name:
+        type: string
   Payload:
     title: Payload
     example:

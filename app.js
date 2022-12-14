@@ -8,7 +8,6 @@ const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocs = YAML.load('./apiDocs.yaml');
-// const swaggerDocs = YAML.load('./apiDocs-SwaggerYaml.yaml');
 //End Swagger
 
 const authRouter = require('./app/api/auth/router');
