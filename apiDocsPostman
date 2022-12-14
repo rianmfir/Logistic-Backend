@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "b5bf2ad0-5733-49f2-944e-1aeac5444eaf",
+		"name": "Swagger Integration API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msisdn\": 89634633499,\r\n    \"name\": \"Bams\",\r\n    \"username\": \"bams\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/signup",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "{{TOKEN}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/auth/me",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"msisdn\": 6288826573212,\r\n    \"password\": \"rahasia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/signin",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logistic",
+			"item": [
+				{
+					"name": "Get All Logistic",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "{{TOKEN}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/logistic",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logistic"
+							],
+							"query": [
+								{
+									"key": "origin_name",
+									"value": "BANDUNG",
+									"disabled": true
+								},
+								{
+									"key": "destination_name",
+									"value": "SURABAYA",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Logistic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "{{TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payload\": [\r\n\r\n    {\r\n   \"logistic_name\":\"Shopee Express\",\r\n   \"amount\":15000,\r\n   \"destination_name\":\"SEMARANG\",\r\n   \"origin_name\":\"BANDUNG\",\r\n   \"duration\":\"3-6\"\r\n},\r\n{\r\n   \"logistic_name\":\"Shopee Express\",\r\n   \"amount\":25000,\r\n   \"destination_name\":\"SURABAYA\",\r\n   \"origin_name\":\"BANDUNG\",\r\n   \"duration\":\"4-6\"\r\n}\r\n    ]\r\n}\r\n   \r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/logistic",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logistic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Logistic",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "{{TOKEN}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"logistic_name\":\"JNE\",\r\n   \"amount\":12000,\r\n   \"destination_name\":\"JAKARTA\",\r\n   \"origin_name\":\"BANDUNG\",\r\n   \"duration\":\"2-4\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/logistic/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logistic",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Logistic",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "TOKEN",
+								"value": "{{TOKEN}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/logistic/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logistic",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3000/api/v1/",
+			"type": "default"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNzg5NWY2ZWUtM2MzMS00NzQwLTgxYzktOGQ5MGI2NTI0MTRjIiwibXNpc2RuIjo2Mjg4ODI2NTczMjEyLCJuYW1lIjoiUmlhbiBNdWhhbW1hZCIsInVzZXJuYW1lIjoicmlhbm1maXIifSwiaWF0IjoxNjcwOTQ5ODE3fQ.dGaz5VSSgU4swCgZoBAJgJ2VXH1zgBxo8lTW1T3ETuM",
+			"type": "default"
+		}
+	]
+}

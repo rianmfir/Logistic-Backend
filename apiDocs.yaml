@@ -1,0 +1,294 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Swagger Integration API
+  contact: {}
+host: localhost:3000
+basePath: /api/v1
+securityDefinitions: {}
+schemes:
+- http
+consumes:
+- application/json
+- application/xml
+- application/x-www-form-urlencoded
+produces:
+- application/json
+- application/xml
+- application/x-www-form-urlencoded
+paths:
+  /auth/signup:
+    post:
+      summary: Signup
+      tags:
+      - Auth
+      operationId: Signup
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/SignupRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /auth/me:
+    get:
+      summary: Me
+      tags:
+      - Auth
+      operationId: Me
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: TOKEN
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /auth/signin:
+    post:
+      summary: SignIn
+      tags:
+      - Auth
+      operationId: SignIn
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/SignInRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /logistic:
+    get:
+      summary: Get All Logistic
+      tags:
+      - Logistic
+      operationId: GetAllLogistic
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: TOKEN
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+    post:
+      summary: Create Logistic
+      tags:
+      - Logistic
+      operationId: CreateLogistic
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: TOKEN
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CreateLogisticRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /logistic/{id}:
+    put:
+      summary: Update Logistic
+      tags:
+      - Logistic
+      operationId: UpdateLogistic
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: TOKEN
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/UpdateLogisticRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+    delete:
+      summary: Delete Logistic
+      tags:
+      - Logistic
+      operationId: DeleteLogistic
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: TOKEN
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+definitions:
+  SignupRequest:
+    title: SignupRequest
+    example:
+      msisdn: 89634633499
+      name: Bams
+      username: bams
+      password: password
+    type: object
+    properties:
+      msisdn:
+        type: integer
+        format: int64
+      name:
+        type: string
+      username:
+        type: string
+      password:
+        type: string
+    required:
+    - msisdn
+    - name
+    - username
+    - password
+  SignInRequest:
+    title: SignInRequest
+    example:
+      msisdn: 6288826573212
+      password: rahasia
+    type: object
+    properties:
+      msisdn:
+        type: integer
+        format: int64
+      password:
+        type: string
+    required:
+    - msisdn
+    - password
+  CreateLogisticRequest:
+    title: CreateLogisticRequest
+    example:
+      payload:
+      - logistic_name: Shopee Express
+        amount: 15000
+        destination_name: SEMARANG
+        origin_name: BANDUNG
+        duration: 3-6
+      - logistic_name: Shopee Express
+        amount: 25000
+        destination_name: SURABAYA
+        origin_name: BANDUNG
+        duration: 4-6
+    type: object
+    properties:
+      payload:
+        type: array
+        items:
+          $ref: '#/definitions/Payload'
+    required:
+    - payload
+  Payload:
+    title: Payload
+    example:
+      logistic_name: Shopee Express
+      amount: 15000
+      destination_name: SEMARANG
+      origin_name: BANDUNG
+      duration: 3-6
+    type: object
+    properties:
+      logistic_name:
+        type: string
+      amount:
+        type: integer
+        format: int32
+      destination_name:
+        type: string
+      origin_name:
+        type: string
+      duration:
+        type: string
+    required:
+    - logistic_name
+    - amount
+    - destination_name
+    - origin_name
+    - duration
+  UpdateLogisticRequest:
+    title: UpdateLogisticRequest
+    example:
+      logistic_name: JNE
+      amount: 12000
+      destination_name: JAKARTA
+      origin_name: BANDUNG
+      duration: 2-4
+    type: object
+    properties:
+      logistic_name:
+        type: string
+      amount:
+        type: integer
+        format: int32
+      destination_name:
+        type: string
+      origin_name:
+        type: string
+      duration:
+        type: string
+    required:
+    - logistic_name
+    - amount
+    - destination_name
+    - origin_name
+    - duration
+tags:
+- name: Auth
+- name: Logistic

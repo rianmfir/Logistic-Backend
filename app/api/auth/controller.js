@@ -53,13 +53,10 @@ module.exports = {
                 return res.status(403).json({ message: 'Username registered' });
             }
 
-            // const newNumber = msisdn[0] === 0 ? 
-
             const user = await User.create(
                 {
                     id: uuidv4(),
-                    // msisdn: `62${msisdn}`,
-                    msisdn,
+                    msisdn: `62${msisdn}`,
                     name,
                     username,
                     password: bcrypt.hashSync(password, 10),
@@ -75,6 +72,25 @@ module.exports = {
 
         } catch (err) {
             next(err);
+        }
+    },
+
+    me: async (req, res, next) => {
+
+        try {
+            if (!req.user) {
+                res.status(403).json({
+                    message: "You're not login or token expired"
+                });
+            };
+
+            res.status(200).json({
+                message: "Success get me",
+                data: req.user,
+            });
+
+        } catch (err) {
+            next(err)
         }
     }
 }

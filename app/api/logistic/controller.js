@@ -63,8 +63,6 @@ module.exports = {
                 },
             });
 
-            console.table(checkLogistic);
-
             if (!checkLogistic) {
                 return res.status(404).json({
                     message: "id logistic not found",
