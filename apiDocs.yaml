@@ -49,7 +49,7 @@ paths:
       parameters:
       - name: TOKEN
         in: header
-        required: true
+        # required: true
         type: string
         description: ''
       responses:
@@ -88,7 +88,7 @@ paths:
       parameters:
       - name: TOKEN
         in: header
-        required: true
+        # required: true
         type: string
         description: ''
       - name: origin_name
@@ -118,7 +118,7 @@ paths:
       parameters:
       - name: TOKEN
         in: header
-        required: true
+        # required: true
         type: string
         description: ''
       - name: Body
@@ -143,13 +143,13 @@ paths:
       parameters:
       - name: id
         in: path
-        required: true
+        # required: true
         type: integer
         format: int32
         description: ''
       - name: TOKEN
         in: header
-        required: true
+        # required: true
         type: string
         description: ''
       - name: Body
@@ -173,13 +173,13 @@ paths:
       parameters:
       - name: id
         in: path
-        required: true
+        # required: true
         type: integer
         format: int32
         description: ''
       - name: TOKEN
         in: header
-        required: true
+        # required: true
         type: string
         description: ''
       responses:
